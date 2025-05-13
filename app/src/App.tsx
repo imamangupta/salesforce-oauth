@@ -84,7 +84,7 @@ export default function App() {
       const codeVerifier = generateRandomString(64);
       const codeChallenge = await generateCodeChallenge(codeVerifier);
       sessionStorage.setItem('code_verifier', codeVerifier);
-      const clientId = '3MVG9rZjd7MXFdLhvkStWxMd82zUgk.LAigYgBjk40lK0MRzDwTylLki_6ZR0wGmHCiy15rwby31xTA8B3ojB';
+      const clientId = process.env.SALESFORCE_CLIENT_SECRET 
       const redirectUri = encodeURIComponent('https://salesforce-connection.vercel.app');
 
       const authUrl = `https://login.salesforce.com/services/oauth2/authorize?` +

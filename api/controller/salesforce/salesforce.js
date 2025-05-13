@@ -8,8 +8,8 @@ exports.authtoken = async (req, res) => {
             return res.status(400).json({ error: 'Authorization code is required' });
         }
 
-        const clientId = '3MVG9rZjd7MXFdLhvkStWxMd82zUgk.LAigYgBjk40lK0MRzDwTylLki_6ZR0wGmHCiy15rwby31xTA8B3ojB';
-        const clientSecret = 'FD6D4B7C63F53F97896F3F13072E3DD677D622230327D95D7B84A979C88CC94C'; 
+        const clientId = process.env.SALESFORCE_CLIENT_ID 
+        const clientSecret = process.env.SALESFORCE_CLIENT_SECRET 
 
         const response = await fetch('https://login.salesforce.com/services/oauth2/token', {
             method: 'POST',
